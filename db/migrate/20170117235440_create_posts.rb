@@ -1,7 +1,7 @@
-class CreateImages < ActiveRecord::Migration
+class CreatePosts < ActiveRecord::Migration
   def change
-    create_table :images do |t|
-      t.string :name
+    create_table :posts do |t|
+      t.string :description
       t.string :picture
       t.references :user, index: true, foreign_key: true
 
