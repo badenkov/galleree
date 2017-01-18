@@ -8,7 +8,7 @@
     <div class="thumbnail">
       <%= image_tag post.picture.url %>
       <div class="caption">
-        <p><%= post.description %></p>
+        <p><strong><%= post.user.full_name %></strong> - <%= post.description %></p>
         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
     </div>
