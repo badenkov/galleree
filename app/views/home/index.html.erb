@@ -8,7 +8,12 @@
     <div class="thumbnail">
       <%= image_tag post.picture.url %>
       <div class="caption">
-        <%= image_tag post.user.avatar.url, size: "50x50" %>
+        <%#= show_avatar(post.user) %>
+        <div class="avatar-circle">
+           <span class="initials">
+             <%= post.user.first_name[0].upcase + post.user.last_name[0].upcase %>
+           </span>
+        </div>
         <p><strong><%= post.user.full_name %></strong> - <%= post.description %></p>
         <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
