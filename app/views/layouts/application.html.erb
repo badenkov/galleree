@@ -45,17 +45,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Workspace</a>
+        <%= link_to "Galleree", root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
           <ul class="nav navbar-right col-md-4">
             <% if current_user %>
               <li class="col-md-8 user-name">
-                <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,
+                <%= link_to ('<i class="fa fa-user"></i> ' + current_user.full_name).html_safe,
                   edit_user_registration_path, title: 'Edit Profile' %>
               </li>
               <li class="col-md-1"> </li>
@@ -77,10 +72,8 @@
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
               <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "NewsFeed" %></li>
+              <li><%= link_to "Messages" %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -92,10 +85,11 @@
         <div class="well sidebar-nav">
           <h3>Sidebar</h3>
             <ul class="nav nav-list">
-            <li class="nav-header">Sidebar</li>
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Friends" %></li>
+            <li><%= link_to "Followers" %></li>
+            <li><%= link_to "Find Friends" %></li>
+            <li><%= link_to "Edit Profile" %></li>
+            <li><%= link_to "Change password" %></li>
           </ul>
         </div><!--/.well -->
       </div><!--/span-->
