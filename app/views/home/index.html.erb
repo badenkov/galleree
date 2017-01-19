@@ -4,19 +4,24 @@
 </div>
 
 <% @posts.each do |post| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag post.picture.url %>
-      <div class="caption">
+  <div class="row">
+    <div class="well">
+      <div class="info">
         <%#= show_avatar(post.user) %>
         <div class="avatar-circle">
            <span class="initials">
              <%= post.user.first_name[0].upcase + post.user.last_name[0].upcase %>
            </span>
         </div>
-        <p><strong><%= post.user.full_name %></strong> - <%= post.description %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <h4><%= post.user.full_name %></h4>
+        <div class="content">
+          <div class="thumbnail">
+            <%= image_tag post.picture.url %>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 <% end %>
+    
