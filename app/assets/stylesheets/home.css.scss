@@ -1,0 +1,28 @@
+#newsfeed > h4 {
+  text-align: center;
+  padding: 10px;
+}
+
+#intro {
+  margin-top: 125px;
+  padding: 10px 50px;
+  text-align: center;
+  h1 {
+    font-weight: 300 !important;
+  }
+
+  p {
+    font-size: 1.65rem;
+    line-height: 3rem;
+  }
+}
+
+#img-preview {
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid;
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+  background : #eee;
+}
+
+.navbar {
+  border          : none;
+  background-color: #777;
+  padding-bottom: 5p;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico';
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color      : white !important;
+  &:hover {
+    color: #999 !important;
+  };
+}
+
+.user-name {
+  padding: 0 !important ;
+  padding-left: 5px;
+  padding-top: 10px !important;
+  text-align: center;
+
+  a {
+    color: black !important;
+    margin: 0 !important;
+    padding: 5px!important;
+  }
+
+  a:hover, a:focus {
+    color: #000 !important;
+  }
+}
+
+.activity {
+  background   : white;
+  border       : 1px solid #ddd;
+  border-radius: 3px;
+  padding      : 10px;
+  margin       : 10px;
+}
+
+.name {
+  display    : inline-block;
+  margin-left: 10px;
+}
+
+.created-at {
+  font-size : 12px;
+  margin-top: 15px;
+}
+
+.activity-event,
+.activity-post,
+.event,
+.post {
+  .actions {
+    margin-top : 10px;
+    padding-top: 10px;
+    border-top : 1px solid #ddd;
+
+    a,
+    button {
+      background-color: #ccc;
+      color           : #555;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}

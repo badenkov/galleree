@@ -1,34 +1,43 @@
-<!-- Showing Posts -->
-<div class="row posts">
+<div id="newsfeed" class="col-lg-6">
   <% @posts.each do |post| %>
-    <div class="col-md-2 post-avatar">
-      <%= user_avatar(post.user) %>
-    </div>
-    <div class="col-md-10" style="margin-bottom: 35px;">
-      <div class="panel panel-default post-panel">
-        <div class="panel-title">
-          <h4><%= post.user.first_name %> updated their status.</h4>
-          <p><%= post.content.html_safe %></p>
+    <div id="activity-3664" class="activity">
+      <div id="post-914" class="activity-post">
+        <div class="info">
+          <%= user_avatar(post.user) %>
+          <h4 class="name"><a href="/users/shaun-789f3b0e-7819-41d3-b562-9ff0439b1ea5">Shaun</a></h4>
+          <span class="action">created a <a href="/posts/914">post</a></span>
         </div>
-        <div class="panel-body">
-          <% if post.picture.present? %>
-            <%= image_tag post.picture, width: "100%", height: "300" %>
-          <% end %>
-          <small>
-            <span>created by:<%= post.user.full_name %></span>, <span><%= time_ago_in_words(post.created_at) %> ago</span>
-          </small>
+        <div class="content">
+          <span class="text"><p><%= post.content %></p></span>
+            <% if post.picture? %>
+              <div class="attachment">
+                <%= image_tag post.picture, width: "100%", height: "300" %>
+              </div>
+            <% end %>
+            <div class="created-at">
+              <i class="fa fa-clock-o"></i>2 days ago
+            </div>
+            <div class="points">
+              <span class="like-count">1 like</span>
+              <span class="comments-count">0 comments</span>
+              <div class="pull-right">
+                <a class="btn btn-primary btn-sm" href="/posts/914/edit"><i class="fa fa-pencil"></i></a>        
+                <a class="btn btn-danger btn-sm" data-method="delete" data-remote="true" href="/posts/914" rel="nofollow"><i class="fa fa-trash"></i></a>    
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="row">
+              <div class="col-xs-6 like">
+                <form accept-charset="UTF-8" action="/unlike?likeable_id=914&amp;likeable_type=Post" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div><button class="btn btn-block liked" name="button" type="submit">      <i class="fa fa-thumbs-up"></i> unlike</button></form>
+              </div>
+              <div class="col-xs-6 comment">
+                <a class="btn btn-block" href="/posts/914"><i class="fa fa-comment"></i> comment</a>      
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="well interaction">
-        <%#= render 'comments/actions', :post => post %>
-      </div>
-      <div class="comment" style="display: none;">
-        <div class="comment-lists">
-          <%#= render post.comments %>
-        </div>
-        <%#= render 'comments/form', :post => post %>
-      </div>
-    </div>
+    </div>    
   <% end %>
-</div><!--END Showing Posts -->
+</div>
     
