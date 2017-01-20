@@ -72,3 +72,27 @@
 .left-padding {
   padding-left: 15px !important;
 }
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.posts{
+  margin-top: 35px;
+  .post-avatar {
+    padding-left: 0;
+  }
+  .panel-title {
+    padding:15px;
+  }
+}
+
+.interaction {
+  padding:3px;
+  margin-bottom: 0;
+}
+
+.post-panel {
+  margin-bottom:0;
+}

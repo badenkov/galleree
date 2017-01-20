@@ -4,8 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @post.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @post.content %></dd>
   <dt></dt>
   <dd><%= image_tag @post.picture.url if @post.picture? %></dd>
 </dl>
