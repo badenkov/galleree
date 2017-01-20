@@ -7,12 +7,7 @@
   <div class="row">
     <div class="well">
       <div class="info">
-        <%#= show_avatar(post.user) %>
-        <div class="avatar-circle">
-           <span class="initials">
-             <%= post.user.first_name[0].upcase + post.user.last_name[0].upcase %>
-           </span>
-        </div>
+        <%= user_avatar(post.user) %>
         <h4><%= post.user.full_name %></h4>
         <div class="content">
           <div class="thumbnail">

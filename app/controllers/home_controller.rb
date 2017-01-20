@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   include UsersHelper
-  helper_method :show_avatar
+  helper_method :user_avatar
   
   def index
     @posts = Post.all
