@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 body {
   background : #eee;
@@ -7,7 +8,7 @@ body {
 .navbar {
   border          : none;
   background-color: #777;
-  padding-bottom: 5p;
+  padding-bottom: 5px;
 }
 
 .navbar-brand {
@@ -52,6 +53,12 @@ body {
 .name {
   display    : inline-block;
   margin-left: 10px;
+}
+
+.action {
+  font-size  : 18px;
+  margin-left: 2px;
+  vertical-align: -50%;
 }
 
 .created-at {
