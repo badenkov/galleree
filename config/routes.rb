@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  resources :posts
+  
+  resources :posts do
+    member do 
+      put "like" => "posts#upvote"
+      put "like" => "posts#upvote"
+    end
+  end
+  
   resources :users, only: [:show]
+  
   devise_for :users
+  
+  match :like, to: 'likes#create', as: :like, via: :post
+  match :unlike, to: 'likes#destroy', as: :unlike, via: :post 
+  
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

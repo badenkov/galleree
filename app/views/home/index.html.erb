@@ -8,7 +8,7 @@
         <div id="post-914" class="activity-post">
           <div class="info">
             <%= user_avatar(post.user) %>
-            <span class="action"<% link_to post.user.first_name, user_path(post.user) %> created a <a href="/posts/914">post</a></span>
+            <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <a href="/posts/914">post</a></span>
           </div>
           <div class="content">
             <span class="text"><p><%= post.content %></p></span>
@@ -21,7 +21,7 @@
                 <i class="fa fa-clock-o"></i> 2 days ago
               </div>
               <div class="points">
-                <span class="like-count">1 like</span>
+                <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>
                 <span class="comments-count">0 comments</span>
                 <div class="pull-right">
                   <a class="btn btn-primary btn-sm" href="/posts/914/edit"><i class="fa fa-pencil"></i></a>        
@@ -29,16 +29,7 @@
                 </div>
               </div>
             </div>
-            <div class="actions">
-              <div class="row">
-                <div class="col-xs-6 like">
-                  <form accept-charset="UTF-8" action="/unlike?likeable_id=914&amp;likeable_type=Post" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div><button class="btn btn-block liked" name="button" type="submit">      <i class="fa fa-thumbs-up"></i> unlike</button></form>
-                </div>
-                <div class="col-xs-6 comment">
-                  <a class="btn btn-block" href="/posts/914"><i class="fa fa-comment"></i> comment</a>      
-                </div>
-              </div>
-            </div>
+            <%= render 'shared/actions', resource: post %>
           </div>
       </div>    
     <% end %>
