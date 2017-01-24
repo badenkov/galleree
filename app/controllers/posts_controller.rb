@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-
+  include UsersHelper
+  helper_method :user_avatar
+  
   # GET /posts
   # GET /posts.json
   def index

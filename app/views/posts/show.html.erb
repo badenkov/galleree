@@ -1,21 +1,18 @@
-<%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div id="post-<%= @post.id %>" class="post">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+      <%= render @post, remote: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+      <h4>Comments</h4>
+      <hr>
+      <%= render 'comments/form', commentable: @post %>
+      <br>
+      <div class="comments">
+        <%#= render(@comments) || render('shared/no_resource', resources: 'Comments') %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
-  <dd><%= @post.content %></dd>
-  <dt></dt>
-  <dd><%= image_tag @post.picture.url if @post.picture? %></dd>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              posts_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_post_path(@post), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              post_path(@post),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>

@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   
-  resources :posts do
-    member do 
-      put "like" => "posts#upvote"
-      put "like" => "posts#upvote"
+  resources :posts 
+  resources :comments, only: [:create, :destroy]
+  devise_for :users
+  resources :users do
+    member do
+      get :friends
+      get :followers
+      get :deactivate
+      get :mentionable
     end
   end
-  
-  devise_for :users
-  
-  resources :users, only: [:show]
   
   match :like, to: 'likes#create', as: :like, via: :post
   match :unlike, to: 'likes#destroy', as: :unlike, via: :post 

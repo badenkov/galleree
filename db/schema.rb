@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124221143) do
+ActiveRecord::Schema.define(version: 20170124225140) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title",            limit: 50, default: ""
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170124221143) do
   add_index "images", ["user_id"], name: "index_images_on_user_id"
 
   create_table "posts", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.string   "picture"
     t.integer  "user_id"
     t.datetime "created_at",                            null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170124221143) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.integer  "comments_count",          default: 0
   end
 
   add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170124221143) do
   add_index "posts", ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average"
   add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
+  add_index "posts", ["comments_count"], name: "index_posts_on_comments_count"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
