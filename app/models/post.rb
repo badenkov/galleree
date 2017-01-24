@@ -1,9 +1,16 @@
 class Post < ActiveRecord::Base
-  acts_as_votable
+  
   belongs_to :user
+  
+  acts_as_commentable
+  acts_as_votable
+  
   mount_uploader :picture, PictureUploader
+  
+  validates_presence_of :content
+  validates_presence_of :user
   validate :picture_size
-
+  
   private
   
   def picture_size

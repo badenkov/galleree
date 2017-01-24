@@ -19,6 +19,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'font-awesome-rails'
+gem 'acts_as_commentable'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
