@@ -27,5 +27,5 @@ class AddCachedVotesToPosts < ActiveRecord::Migration
     remove_column :posts, :cached_weighted_score
     remove_column :posts, :cached_weighted_total
     remove_column :posts, :cached_weighted_average
-  endrake
+  end
 end
