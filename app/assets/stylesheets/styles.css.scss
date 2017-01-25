@@ -7,7 +7,7 @@ body {
 
 .navbar {
   border          : none;
-  background-color: #777;
+  background-color: #555;
   padding-bottom: 5px;
 }
 
@@ -64,6 +64,16 @@ body {
 .created-at {
   font-size : 12px;
   margin-top: 15px;
+}
+
+div.editable {
+  height    : 65px;
+  max-height: 65px;
+  overflow-y: scroll;
+}
+
+.btn-primary {
+  background-color: #555;
 }
 
 .activity-event,

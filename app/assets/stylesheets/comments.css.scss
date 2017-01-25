@@ -1,0 +1,15 @@
+.activity-comment, .activity-like, .comment, .like {
+  .content {
+    border: 1px solid #eee;
+    margin-left: 75px;
+    margin-right: 15px;
+    padding: 5px 15px;
+    .text {
+      font-size: 10px
+    }
+  }
+
+  .created-at {
+    margin-left: 75px;
+  }
+}
