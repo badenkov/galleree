@@ -8,7 +8,7 @@
         <div id="post-914" class="activity-post">
           <div class="info">
             <%= user_avatar(post.user) %>
-            <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", posts_path(post.id) %></span>
+            <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", post_path(post.id) %></span>
           </div>
           <div class="content">
             <span class="text"><p><%= post.content %></p></span>

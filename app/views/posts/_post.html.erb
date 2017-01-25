@@ -9,7 +9,7 @@
       <%= image_tag post.picture, width: "100%" %>
     </div>
   <% end %>
-  <%#= render 'shared/created_at', activity: post %>
+  <%= render 'shared/created_at', activity: post %>
   <div class="points">
     <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>
     <span class="comments-count"><%= pluralize(post.comments_count, 'comment') %></span>
