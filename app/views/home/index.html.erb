@@ -5,7 +5,7 @@
   <div id="newsfeed" class="col-lg-6">
     <% @posts.each do |post| %>
       <div id="activity-3664" class="activity">
-        <div id="<%= post.id %>" class="activity-post">
+        <div id="post-<%= post.id %>" class="activity-post">
           <div class="info">
             <%= user_avatar(post.user) %>
             <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", post_path(post.id) %></span>
@@ -25,7 +25,7 @@
                 <span class="comments-count">0 comments</span>
                 <div class="pull-right">
                   <a class="btn btn-primary btn-sm" href="<%= post.id %>"><i class="fa fa-pencil"></i></a>        
-                  <a class="btn btn-danger btn-sm" data-method="delete" data-remote="true" href="/posts/914" rel="nofollow"><i class="fa fa-trash"></i></a>    
+                  <a class="btn btn-danger btn-sm" data-method="delete" data-remote="true" href="<%= post.id %>" rel="nofollow"><i class="fa fa-trash"></i></a>    
                 </div>
               </div>
             </div>
