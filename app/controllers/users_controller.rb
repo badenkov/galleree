@@ -6,6 +6,14 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
   
+  def friends
+    @friends = @user.following_users.paginate(page: params[:page])
+  end
+
+  def followers
+    @followers = @user.user_followers.paginate(page: params[:page])
+  end
+  
   private
     
   def set_user
