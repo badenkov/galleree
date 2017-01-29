@@ -9,4 +9,8 @@ module UsersHelper
       end
     end
   end
+  
+  def options_for_sexes
+    [['Male', 'male'], ['Female', 'female']]
+	end
 end
