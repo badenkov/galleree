@@ -5,11 +5,17 @@ class Post < ActiveRecord::Base
   acts_as_commentable
   acts_as_votable
   
+  include PublicActivity::Model
+  tracked only: [:create, :like], owner: proc { |_controller, model| model.user }
+  
   mount_uploader :picture, PictureUploader
   
   validates_presence_of :content
   validates_presence_of :user
   validate :picture_size
+  
+  validates_presence_of :content
+  validates_presence_of :user
   
   private
   

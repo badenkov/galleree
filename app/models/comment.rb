@@ -1,5 +1,4 @@
 class Comment < ActiveRecord::Base
-
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true
@@ -12,6 +11,9 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+  
+  include PublicActivity::Model
+  tracked only: [:create], owner: proc { |_controller, model| model.user }
   
   validates_presence_of :comment
   validates_presence_of :commentable

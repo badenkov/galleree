@@ -10,5 +10,11 @@ class Follow < ActiveRecord::Base
   def block!
     self.update_attribute(:blocked, true)
   end
+  
+  include PublicActivity::Model
+  tracked only: [:create], owner: Proc.new{ |controller, model| model.follower }
 
+  validates_presence_of :follower
+  validates_presence_of :followable
+  
 end
