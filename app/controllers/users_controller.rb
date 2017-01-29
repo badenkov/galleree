@@ -26,6 +26,9 @@ class UsersController < ApplicationController
     @followers = @user.user_followers.paginate(page: params[:page])
   end
   
+  def deactivate
+	end
+  
   private
     
   def set_user
