@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user
   
   def show
-    @posts = @user.posts
+    @activities = PublicActivity::Activity.where(owner: @user).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
   
   def edit
