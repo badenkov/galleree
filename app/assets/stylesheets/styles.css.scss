@@ -104,3 +104,18 @@ div.editable {
     }
   }
 }
+
+#links,
+#user-info {
+  h5 {
+    border-bottom: 1px solid #ccc;
+    padding      : 15px 10px;
+    margin       : 0;
+  }
+
+  i {
+    font-size   : 1.75rem;
+    margin-right: 20px;
+  }
+}
+

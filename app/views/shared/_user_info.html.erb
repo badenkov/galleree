@@ -1,7 +1,29 @@
-<div class="well sidebar-nav">
-  <h3>Shortcuts</h3>
-    <ul class="nav nav-list">
-    <li><%= link_to "NewsFeed" %></li>
-    <li><%= link_to "Messages" %></li>
-  </ul>
+<div id="user-info" class="well">
+  <div class="text-center">
+    <%= user_avatar(@user) %><br>
+    <h5><%= link_to @user.full_name, @user %></h5>
+  </div>
+  <h5>
+    <%= fa_icon 'shield' %>
+    <%= pluralize(@user.posts_count, 'post') %>
+  </h5>
+  <% if @user.dob.present? %>
+    <h5>
+      <%= fa_icon @user.sex %>
+      <%= "#{pluralize(age(@user.dob), 'year')} old" %>
+    </h5>
+  <% end %>
+  <% if @user.location.present? %>
+    <h5>
+      <%= fa_icon 'map-marker' %>
+      <%= @user.location %>
+    </h5>
+  <% end %>
+  <br>
+  <div class="text-center">
+    <% unless is_current_user?(@user) %>
+      <%= render 'follows/form', user: @user %>
+      <h6><%= 'Follows you' if current_user.followed_by?(@user) %></h6>
+    <% end %>
+  </div>
 </div>
