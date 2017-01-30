@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :set_user
   include UsersHelper
   helper_method :user_avatar
+  respond_to :html, :js
   
   def index
     @post = Post.new

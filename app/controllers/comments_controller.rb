@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  respond_to :js
+  
   def show
     @comments = @post.comments.all
   end
