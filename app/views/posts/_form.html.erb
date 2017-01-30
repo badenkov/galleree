@@ -1,50 +1,22 @@
-<%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
-
-  <% if @post.errors.any? %>
-    <div id="error_expl" multipart: true, class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+<div class="well">
+  <div id="mentionable-data" data-content="<%#= mentionable_user_path(current_user) %>"></div>
+  <%= form_for @post, html: { class: 'post_form' } do |f| %>
+    <div class="form-group">
+      <h4>Update Status</h4>
+      <div id="post-content" contenteditable="true" class="editable form-control input-mentionable" placeholder="What's up?"></div>
+      <%= f.hidden_field :content, class: 'form-control input-mentionable', autofocus: true %>
+    </div>
+    <div id="img-preview" class="form-group hidden">
+      <img src="" alt="Preview">
+    </div>
+    <div class="form-group hidden">
+      <%= f.file_field :attachment %>
+    </div>
+    <div class="form-group">
+      <a id="post-attachment" href="javascript:void(0);" class="pull-right btn btn-primary">
+        <%= fa_icon 'image' %>
+      </a>
+      <%= f.submit 'Post', class: 'btn btn-primary'%>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :content, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :content, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:content) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :picture, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
-    </div>
-    <%=f.error_span(:picture) %>
-  </div>
-
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                posts_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
-
-<% end %>
-
-<script type="text/javascript">
-  $('#image_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB.');
-    }
-  });
-</script>
+</div>

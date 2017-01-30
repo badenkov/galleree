@@ -3,36 +3,18 @@
     <%= render 'shared/user_info' %>
   </div>
   <div id="newsfeed" class="col-lg-6">
-    <% @posts.each do |post| %>
-      <div id="activity-3664" class="activity">
-        <div id="post-<%= post.id %>" class="activity-post">
-          <div class="info">
-            <%= user_avatar(post.user) %>
-            <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", post_path(post.id) %></span>
-          </div>
-          <div class="content">
-            <span class="text"><p><%= post.content %></p></span>
-              <% if post.picture? %>
-                <div class="attachment">
-                  <%= image_tag post.picture, width: "100%" %>
-                </div>
-              <% end %>
-              <div class="created-at">
-                <i class="fa fa-clock-o"></i> 2 days ago
-              </div>
-              <div class="points">
-                <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>
-                <span class="comments-count">0 comments</span>
-                <div class="pull-right">
-                  <a class="btn btn-primary btn-sm" href="<%= post.id %>"><i class="fa fa-pencil"></i></a>        
-                  <a class="btn btn-danger btn-sm" data-method="delete" data-remote="true" href="<%= post.id %>" rel="nofollow"><i class="fa fa-trash"></i></a>    
-                </div>
-              </div>
-            </div>
-            <%= render 'shared/actions', resource: post %>
-          </div>
-      </div>    
-    <% end %>
+    <%= render 'posts/form' %>
+    <br>
+    <div id="activities">
+      <% if @activities.empty? %>
+        <div class="well">
+          <%= render('shared/no_resource', resources: 'Activities') %>
+        </div>
+      <% else %>
+        <%= render_activities(@activities, layout: '/shared/activity') %>
+      <% end %>
+    </div>
+    <%= render 'shared/paginate', resources: @activities %>
   </div>
   <div class="col-lg-3">
     <%= render 'shared/links' %>

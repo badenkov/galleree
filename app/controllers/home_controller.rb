@@ -4,7 +4,9 @@ class HomeController < ApplicationController
   helper_method :user_avatar
   
   def index
-    @posts = Post.all
+    @post = Post.new
+    @friends = @user.all_following.unshift(@user)
+    @activities = PublicActivity::Activity.where(owner_id: @friends).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
   
   def find_friends
