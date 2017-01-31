@@ -29,7 +29,7 @@ gem 'public_activity'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'jquery-atwho-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

@@ -1,6 +1,6 @@
 <div class="info">
   <%= user_avatar(post.user) %>
-  <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", posts_path(post.id) %></span>
+  <span class="action"><%= link_to post.user.first_name, user_path(post.user) %> created a <%= link_to "post", post %></span>
 </div>
 <div class="content">
   <span class="text"><%= post.content %></span>
