@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
-  
+
   def show
     @comments = @post.comments.all
   end
@@ -37,6 +37,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :attachment)
+    params.require(:post).permit(:content, :picture)
   end
 end
