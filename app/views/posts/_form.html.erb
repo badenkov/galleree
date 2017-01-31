@@ -3,8 +3,7 @@
   <%= form_for @post, html: { class: 'post_form' } do |f| %>
     <div class="form-group">
       <h4>Update Status</h4>
-      <div id="post-content" contenteditable="true" class="editable form-control input-mentionable" placeholder="What's up?"></div>
-      <%= f.hidden_field :content, class: 'form-control input-mentionable', autofocus: true %>
+      <%= f.text_area :content, class: 'form-control input-mentionable', placeholder: "What's up?", autofocus: true %>
     </div>
     <div id="img-preview" class="form-group hidden">
       <img src="" alt="Preview">

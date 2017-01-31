@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.atwho
 //= require twitter/bootstrap
 //= require_tree .
