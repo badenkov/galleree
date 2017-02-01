@@ -24,4 +24,13 @@ $(document).ready(function() {
     $('#post_content').val($('#post-content').html());
     $('#post-content').html('');
   });
+
+  var pictureInput = $('#post_picture');
+  var pictureInputButton = $('#post-attachment')
+  pictureInputButton.click(function() {
+    pictureInput.click();
+  });
+  pictureInput.on('change', function(e) {
+    pictureInputButton.find('.file-name').text(e.target.value);
+  });
 });
